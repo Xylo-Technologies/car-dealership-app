@@ -1,19 +1,19 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useMemo } from "react"
-import { ChevronDown } from "lucide-react"
-import CarCard from "@/components/CarCard"
-import SearchFilters from "@/components/SearchFilters"
-import Pagination from "@/components/Pagination"
-import carsData from "../../data/cars.json"
+import { useState, useEffect, useMemo } from "react";
+import { ChevronDown } from "lucide-react";
+import CarCard from "@/components/CarCard";
+import SearchFilters from "@/components/SearchFilters";
+import Pagination from "@/components/Pagination";
+import carsData from "../../../data/cars.json";
 
-const CARS_PER_PAGE = 12
+const CARS_PER_PAGE = 12;
 
 const SearchPage = () => {
-  const [showFilters, setShowFilters] = useState(false)
-  const [currentPage, setCurrentPage] = useState(1)
-  const [sortBy, setSortBy] = useState("newest")
-  const [showSortDropdown, setShowSortDropdown] = useState(false)
+  const [showFilters, setShowFilters] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [sortBy, setSortBy] = useState("newest");
+  const [showSortDropdown, setShowSortDropdown] = useState(false);
   const [filters, setFilters] = useState({
     priceRange: [0, 300000] as [number, number],
     make: "",
@@ -22,62 +22,74 @@ const SearchPage = () => {
     condition: "",
     mileage: [0, 100000] as [number, number],
     fuelType: "",
-  })
+  });
 
   // Combine featured and all cars for search
   const allCars = useMemo(() => {
-    const featured = carsData.featuredCars
-    const additional = carsData.allCars || []
-    return [...featured, ...additional]
-  }, [])
+    const featured = carsData.featuredCars;
+    const additional = carsData.allCars || [];
+    return [...featured, ...additional];
+  }, []);
 
   // Filter cars based on current filters
   const filteredCars = useMemo(() => {
     return allCars.filter((car) => {
-      const matchesPrice = car.price >= filters.priceRange[0] && car.price <= filters.priceRange[1]
-      const matchesMake = !filters.make || car.make === filters.make
-      const matchesYear = !filters.year || car.year.toString() === filters.year
-      const matchesCondition = !filters.condition || car.condition === filters.condition
-      const matchesMileage = car.mileage >= filters.mileage[0] && car.mileage <= filters.mileage[1]
-      const matchesFuelType = !filters.fuelType || car.fuelType === filters.fuelType
+      const matchesPrice =
+        car.price >= filters.priceRange[0] &&
+        car.price <= filters.priceRange[1];
+      const matchesMake = !filters.make || car.make === filters.make;
+      const matchesYear = !filters.year || car.year.toString() === filters.year;
+      const matchesCondition =
+        !filters.condition || car.condition === filters.condition;
+      const matchesMileage =
+        car.mileage >= filters.mileage[0] && car.mileage <= filters.mileage[1];
+      const matchesFuelType =
+        !filters.fuelType || car.fuelType === filters.fuelType;
 
-      return matchesPrice && matchesMake && matchesYear && matchesCondition && matchesMileage && matchesFuelType
-    })
-  }, [allCars, filters])
+      return (
+        matchesPrice &&
+        matchesMake &&
+        matchesYear &&
+        matchesCondition &&
+        matchesMileage &&
+        matchesFuelType
+      );
+    });
+  }, [allCars, filters]);
 
   // Sort cars
   const sortedCars = useMemo(() => {
-    const sorted = [...filteredCars]
+    const sorted = [...filteredCars];
     switch (sortBy) {
       case "price-low":
-        return sorted.sort((a, b) => a.price - b.price)
+        return sorted.sort((a, b) => a.price - b.price);
       case "price-high":
-        return sorted.sort((a, b) => b.price - a.price)
+        return sorted.sort((a, b) => b.price - a.price);
       case "mileage-low":
-        return sorted.sort((a, b) => a.mileage - b.mileage)
+        return sorted.sort((a, b) => a.mileage - b.mileage);
       case "mileage-high":
-        return sorted.sort((a, b) => b.mileage - a.mileage)
+        return sorted.sort((a, b) => b.mileage - a.mileage);
       case "year-new":
-        return sorted.sort((a, b) => b.year - a.year)
+        return sorted.sort((a, b) => b.year - a.year);
       case "year-old":
-        return sorted.sort((a, b) => a.year - b.year)
+        return sorted.sort((a, b) => a.year - b.year);
       case "newest":
       default:
-        return sorted.sort((a, b) => b.id - a.id)
+        return sorted.sort((a, b) => b.id - a.id);
     }
-  }, [filteredCars, sortBy])
+  }, [filteredCars, sortBy]);
 
   // Paginate cars
-  const totalPages = Math.ceil(sortedCars.length / CARS_PER_PAGE)
+  const totalPages = Math.ceil(sortedCars.length / CARS_PER_PAGE);
   const paginatedCars = useMemo(() => {
-    const startIndex = (currentPage - 1) * CARS_PER_PAGE
-    return sortedCars.slice(startIndex, startIndex + CARS_PER_PAGE)
-  }, [sortedCars, currentPage])
+    const startIndex = (currentPage - 1) * CARS_PER_PAGE;
+    return sortedCars.slice(startIndex, startIndex + CARS_PER_PAGE);
+  }, [sortedCars, currentPage]);
 
   // Reset to first page when filters change
   useEffect(() => {
-    setCurrentPage(1)
-  }, [filters, sortBy])
+    setCurrentPage(1);
+  }, [filters, sortBy]);
 
   const sortOptions = [
     { value: "newest", label: "Newest First" },
@@ -87,15 +99,19 @@ const SearchPage = () => {
     { value: "mileage-high", label: "Mileage: High to Low" },
     { value: "year-new", label: "Year: Newest First" },
     { value: "year-old", label: "Year: Oldest First" },
-  ]
+  ];
 
   return (
     <div className="min-h-screen bg-light-gray py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Page Header */}
         <div className="mb-8 animate-fade-in">
-          <h1 className="text-3xl sm:text-4xl font-bold text-deep-blue mb-4">Search Our Inventory</h1>
-          <p className="text-lg text-dark-gray">Find your perfect vehicle from our premium collection</p>
+          <h1 className="text-3xl sm:text-4xl font-bold text-deep-blue mb-4">
+            Search Our Inventory
+          </h1>
+          <p className="text-lg text-dark-gray">
+            Find your perfect vehicle from our premium collection
+          </p>
         </div>
 
         <div className="lg:grid lg:grid-cols-4 lg:gap-8">
@@ -126,11 +142,17 @@ const SearchPage = () => {
                   className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:border-gold transition-all duration-300"
                 >
                   <span className="text-sm font-medium">
-                    Sort: {sortOptions.find((option) => option.value === sortBy)?.label}
+                    Sort:{" "}
+                    {
+                      sortOptions.find((option) => option.value === sortBy)
+                        ?.label
+                    }
                   </span>
                   <ChevronDown
                     size={16}
-                    className={`transition-transform duration-300 ${showSortDropdown ? "rotate-180" : ""}`}
+                    className={`transition-transform duration-300 ${
+                      showSortDropdown ? "rotate-180" : ""
+                    }`}
                   />
                 </button>
 
@@ -140,8 +162,8 @@ const SearchPage = () => {
                       <button
                         key={option.value}
                         onClick={() => {
-                          setSortBy(option.value)
-                          setShowSortDropdown(false)
+                          setSortBy(option.value);
+                          setShowSortDropdown(false);
                         }}
                         className="w-full text-left px-4 py-2 text-sm hover:bg-light-gray transition-colors duration-200 first:rounded-t-lg last:rounded-b-lg"
                       >
@@ -163,8 +185,12 @@ const SearchPage = () => {
             ) : (
               <div className="text-center py-12 animate-fade-in">
                 <div className="text-6xl mb-4">🚗</div>
-                <h3 className="text-xl font-semibold text-deep-blue mb-2">No vehicles found</h3>
-                <p className="text-dark-gray mb-4">Try adjusting your filters to see more results</p>
+                <h3 className="text-xl font-semibold text-deep-blue mb-2">
+                  No vehicles found
+                </h3>
+                <p className="text-dark-gray mb-4">
+                  Try adjusting your filters to see more results
+                </p>
                 <button
                   onClick={() =>
                     setFilters({
@@ -186,13 +212,17 @@ const SearchPage = () => {
 
             {/* Pagination */}
             {paginatedCars.length > 0 && (
-              <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
+              <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={setCurrentPage}
+              />
             )}
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SearchPage
+export default SearchPage;

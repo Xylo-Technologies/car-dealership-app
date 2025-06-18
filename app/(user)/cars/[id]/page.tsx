@@ -1,71 +1,88 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { useParams } from "next/navigation"
-import Image from "next/image"
-import Link from "next/link"
-import { ChevronLeft, ChevronRight, Calendar, Gauge, Fuel, Settings, MapPin, FileText, Car, Phone } from "lucide-react"
-import ContactForm from "@/components/ContactForm"
-import carsData from "../../../data/cars.json"
+import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Calendar,
+  Gauge,
+  Fuel,
+  Settings,
+  MapPin,
+  FileText,
+  Car,
+  Phone,
+} from "lucide-react";
+import ContactForm from "@/components/ContactForm";
+import carsData from "../../../../data/cars.json";
 
 const CarDetailPage = () => {
-  const params = useParams()
-  const carId = Number.parseInt(params.id as string)
+  const params = useParams();
+  const carId = Number.parseInt(params.id as string);
 
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   // Find car from both featured and all cars
-  const allCars = [...carsData.featuredCars, ...(carsData.allCars || [])]
-  const car = allCars.find((c) => c.id === carId)
+  const allCars = [...carsData.featuredCars, ...(carsData.allCars || [])];
+  const car = allCars.find((c) => c.id === carId);
 
   // Auto-play carousel
   useEffect(() => {
-    if (!car || !isAutoPlaying || car.images.length <= 1) return
+    if (!car || !isAutoPlaying || car.images.length <= 1) return;
 
     const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % car.images.length)
-    }, 4000)
+      setCurrentImageIndex((prev) => (prev + 1) % car.images.length);
+    }, 4000);
 
-    return () => clearInterval(interval)
-  }, [car, isAutoPlaying])
+    return () => clearInterval(interval);
+  }, [car, isAutoPlaying]);
 
   if (!car) {
     return (
       <div className="min-h-screen bg-light-gray flex items-center justify-center">
         <div className="text-center animate-fade-in">
           <div className="text-6xl mb-4">🚗</div>
-          <h1 className="text-2xl font-bold text-deep-blue mb-4">Vehicle Not Found</h1>
-          <p className="text-dark-gray mb-6">The vehicle you're looking for doesn't exist or has been removed.</p>
+          <h1 className="text-2xl font-bold text-deep-blue mb-4">
+            Vehicle Not Found
+          </h1>
+          <p className="text-dark-gray mb-6">
+            The vehicle you're looking for doesn't exist or has been removed.
+          </p>
           <Link href="/search" className="btn-primary">
             Browse Our Inventory
           </Link>
         </div>
       </div>
-    )
+    );
   }
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % car.images.length)
-    setIsAutoPlaying(false)
-  }
+    setCurrentImageIndex((prev) => (prev + 1) % car.images.length);
+    setIsAutoPlaying(false);
+  };
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + car.images.length) % car.images.length)
-    setIsAutoPlaying(false)
-  }
+    setCurrentImageIndex(
+      (prev) => (prev - 1 + car.images.length) % car.images.length
+    );
+    setIsAutoPlaying(false);
+  };
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
       minimumFractionDigits: 0,
-    }).format(price)
-  }
+    }).format(price);
+  };
 
   const formatMileage = (mileage: number) => {
-    return new Intl.NumberFormat("en-US").format(mileage)
-  }
+    return new Intl.NumberFormat("en-US").format(mileage);
+  };
 
   return (
     <div className="min-h-screen bg-light-gray py-8">
@@ -73,11 +90,17 @@ const CarDetailPage = () => {
         {/* Breadcrumb */}
         <nav className="mb-6 animate-fade-in" aria-label="Breadcrumb">
           <div className="flex items-center space-x-2 text-sm">
-            <Link href="/" className="text-deep-blue hover:text-gold transition-colors duration-300">
+            <Link
+              href="/"
+              className="text-deep-blue hover:text-gold transition-colors duration-300"
+            >
               Home
             </Link>
             <span className="text-gray-400">/</span>
-            <Link href="/search" className="text-deep-blue hover:text-gold transition-colors duration-300">
+            <Link
+              href="/search"
+              className="text-deep-blue hover:text-gold transition-colors duration-300"
+            >
               Search
             </Link>
             <span className="text-gray-400">/</span>
@@ -94,7 +117,9 @@ const CarDetailPage = () => {
               <div className="relative h-96 sm:h-[500px]">
                 <Image
                   src={car.images[currentImageIndex] || "/placeholder.svg"}
-                  alt={`${car.year} ${car.make} ${car.model} - Image ${currentImageIndex + 1}`}
+                  alt={`${car.year} ${car.make} ${car.model} - Image ${
+                    currentImageIndex + 1
+                  }`}
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -134,11 +159,13 @@ const CarDetailPage = () => {
                     <button
                       key={index}
                       onClick={() => {
-                        setCurrentImageIndex(index)
-                        setIsAutoPlaying(false)
+                        setCurrentImageIndex(index);
+                        setIsAutoPlaying(false);
                       }}
                       className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
-                        index === currentImageIndex ? "border-gold" : "border-gray-300 hover:border-gold"
+                        index === currentImageIndex
+                          ? "border-gold"
+                          : "border-gray-300 hover:border-gold"
                       }`}
                     >
                       <Image
@@ -164,12 +191,16 @@ const CarDetailPage = () => {
                   <span className="bg-gold text-white px-2 py-1 rounded-full text-xs font-semibold">
                     {car.condition}
                   </span>
-                  <span className="text-sm text-gray-600">Stock #{car.stockNumber}</span>
+                  <span className="text-sm text-gray-600">
+                    Stock #{car.stockNumber}
+                  </span>
                 </div>
                 <h1 className="text-3xl font-bold text-deep-blue mb-2">
                   {car.year} {car.make} {car.model}
                 </h1>
-                <div className="text-3xl font-bold text-gold mb-4">{formatPrice(car.price)}</div>
+                <div className="text-3xl font-bold text-gold mb-4">
+                  {formatPrice(car.price)}
+                </div>
               </div>
 
               {/* Quick Stats */}
@@ -194,7 +225,9 @@ const CarDetailPage = () => {
 
               {/* Specs */}
               <div className="mb-6">
-                <h3 className="text-lg font-semibold text-deep-blue mb-3">Key Features</h3>
+                <h3 className="text-lg font-semibold text-deep-blue mb-3">
+                  Key Features
+                </h3>
                 <div className="flex flex-wrap gap-2">
                   {car.specs.map((spec, index) => (
                     <span
@@ -230,11 +263,15 @@ const CarDetailPage = () => {
           {/* Vehicle Specifications */}
           <div className="lg:col-span-2 animate-slide-up">
             <div className="bg-white rounded-lg shadow-lg p-6">
-              <h2 className="text-2xl font-bold text-deep-blue mb-6">Vehicle Specifications</h2>
+              <h2 className="text-2xl font-bold text-deep-blue mb-6">
+                Vehicle Specifications
+              </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h3 className="text-lg font-semibold text-deep-blue mb-4">Basic Information</h3>
+                  <h3 className="text-lg font-semibold text-deep-blue mb-4">
+                    Basic Information
+                  </h3>
                   <div className="space-y-3">
                     <div className="flex justify-between py-2 border-b border-gray-200">
                       <span className="text-gray-600">Make</span>
@@ -254,13 +291,17 @@ const CarDetailPage = () => {
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-200">
                       <span className="text-gray-600">Mileage</span>
-                      <span className="font-medium">{formatMileage(car.mileage)} mi</span>
+                      <span className="font-medium">
+                        {formatMileage(car.mileage)} mi
+                      </span>
                     </div>
                   </div>
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold text-deep-blue mb-4">Technical Details</h3>
+                  <h3 className="text-lg font-semibold text-deep-blue mb-4">
+                    Technical Details
+                  </h3>
                   <div className="space-y-3">
                     <div className="flex justify-between py-2 border-b border-gray-200">
                       <span className="text-gray-600">Fuel Type</span>
@@ -287,12 +328,16 @@ const CarDetailPage = () => {
               </div>
 
               <div className="mt-6">
-                <h3 className="text-lg font-semibold text-deep-blue mb-4">Additional Information</h3>
+                <h3 className="text-lg font-semibold text-deep-blue mb-4">
+                  Additional Information
+                </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-3">
                     <div className="flex justify-between py-2 border-b border-gray-200">
                       <span className="text-gray-600">VIN</span>
-                      <span className="font-medium font-mono text-sm">{car.vin}</span>
+                      <span className="font-medium font-mono text-sm">
+                        {car.vin}
+                      </span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-200">
                       <span className="text-gray-600">Stock Number</span>
@@ -305,7 +350,9 @@ const CarDetailPage = () => {
               {/* Features */}
               {car.features && car.features.length > 0 && (
                 <div className="mt-6">
-                  <h3 className="text-lg font-semibold text-deep-blue mb-4">Features & Options</h3>
+                  <h3 className="text-lg font-semibold text-deep-blue mb-4">
+                    Features & Options
+                  </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {car.features.map((feature, index) => (
                       <div key={index} className="flex items-center gap-2 py-1">
@@ -344,7 +391,10 @@ const CarDetailPage = () => {
                   <br />
                   Luxury District, LD 12345
                   <br />
-                  <a href="tel:555-0000" className="text-gold hover:text-deep-blue transition-colors duration-300">
+                  <a
+                    href="tel:555-0000"
+                    className="text-gold hover:text-deep-blue transition-colors duration-300"
+                  >
                     (555) 000-0000
                   </a>
                 </p>
@@ -355,7 +405,9 @@ const CarDetailPage = () => {
           {/* Contact Form */}
           <div className="animate-slide-up">
             <div className="bg-white rounded-lg shadow-lg p-6 sticky top-24">
-              <h2 className="text-2xl font-bold text-deep-blue mb-6">Contact Us</h2>
+              <h2 className="text-2xl font-bold text-deep-blue mb-6">
+                Contact Us
+              </h2>
               <ContactForm
                 carInfo={{
                   make: car.make,
@@ -369,7 +421,7 @@ const CarDetailPage = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CarDetailPage
+export default CarDetailPage;
