@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation"
 import AdminSidebar from "@/components/AdminSidebar"
 import InventoryTab from "@/components/InventoryTab"
 import LeadsTab from "@/components/LeadsTab"
+import AnalyticsTab from "@/components/AnalyticsTab"
+import SettingsTab from "@/components/SettingsTab"
 
 const AdminDashboard = () => {
   const router = useRouter()
@@ -36,21 +38,9 @@ const AdminDashboard = () => {
       case "leads":
         return <LeadsTab />
       case "analytics":
-        return (
-          <div className="text-center py-12">
-            <div className="text-6xl mb-4">📊</div>
-            <h3 className="text-xl font-semibold text-deep-blue mb-2">Analytics Coming Soon</h3>
-            <p className="text-gray-600">Advanced analytics and reporting features will be available here.</p>
-          </div>
-        )
+        return <AnalyticsTab />
       case "settings":
-        return (
-          <div className="text-center py-12">
-            <div className="text-6xl mb-4">⚙️</div>
-            <h3 className="text-xl font-semibold text-deep-blue mb-2">Settings Coming Soon</h3>
-            <p className="text-gray-600">System settings and configuration options will be available here.</p>
-          </div>
-        )
+        return <SettingsTab />
       default:
         return <InventoryTab />
     }

@@ -1,0 +1,58 @@
+{
+  "overview": {
+    "totalCars": 47,
+    "totalViews": 12450,
+    "totalLeads": 89,
+    "conversionRate": 7.2
+  },
+  "tiktok": {
+    "followers": [
+      { "month": "Jan", "count": 1200 },
+      { "month": "Feb", "count": 1450 },
+      { "month": "Mar", "count": 1680 },
+      { "month": "Apr", "count": 1920 },
+      { "month": "May", "count": 2150 },
+      { "month": "Jun", "count": 2380 }
+    ],
+    "engagement": [
+      { "month": "Jan", "rate": 4.2 },
+      { "month": "Feb", "rate": 5.1 },
+      { "month": "Mar", "rate": 4.8 },
+      { "month": "Apr", "rate": 6.2 },
+      { "month": "May", "rate": 5.9 },
+      { "month": "Jun", "rate": 7.1 }
+    ],
+    "topPosts": [
+      { "id": "TT001", "title": "2024 BMW M4 Review", "views": 15420, "likes": 892 },
+      { "id": "TT002", "title": "Luxury Car Collection Tour", "views": 12350, "likes": 756 },
+      { "id": "TT003", "title": "Mercedes AMG Sound Test", "views": 9870, "likes": 634 },
+      { "id": "TT004", "title": "Audi RS6 vs BMW M5", "views": 8920, "likes": 521 },
+      { "id": "TT005", "title": "Porsche 911 Turbo S Drive", "views": 7650, "likes": 445 }
+    ]
+  },
+  "instagram": {
+    "followers": [
+      { "month": "Jan", "count": 2800 },
+      { "month": "Feb", "count": 3100 },
+      { "month": "Mar", "count": 3450 },
+      { "month": "Apr", "count": 3720 },
+      { "month": "May", "count": 4050 },
+      { "month": "Jun", "count": 4380 }
+    ],
+    "engagement": [
+      { "month": "Jan", "rate": 3.8 },
+      { "month": "Feb", "rate": 4.2 },
+      { "month": "Mar", "rate": 4.6 },
+      { "month": "Apr", "rate": 5.1 },
+      { "month": "May", "rate": 4.9 },
+      { "month": "Jun", "rate": 5.4 }
+    ],
+    "topPosts": [
+      { "id": "IG001", "title": "Sunset with Lamborghini", "views": 8920, "likes": 1240 },
+      { "id": "IG002", "title": "Ferrari F8 Detail Shots", "views": 7650, "likes": 980 },
+      { "id": "IG003", "title": "McLaren 720S Interior", "views": 6890, "likes": 820 },
+      { "id": "IG004", "title": "Bentley Continental GT", "views": 6120, "likes": 750 },
+      { "id": "IG005", "title": "Rolls Royce Ghost Tour", "views": 5840, "likes": 690 }
+    ]
+  }
+}
