@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { Calendar, Gauge } from "lucide-react"
+import Link from "next/link"
 
 interface CarCardProps {
   car: {
@@ -78,7 +79,9 @@ const CarCard = ({ car }: CarCardProps) => {
         </div>
 
         {/* CTA Button */}
-        <button className="w-full btn-secondary text-center">View Details</button>
+        <Link href={`/cars/${car.id}`} className="w-full btn-secondary text-center block">
+          View Details
+        </Link>
       </div>
     </div>
   )
