@@ -10,6 +10,8 @@ A modern, responsive car dealership website built with Next.js, TypeScript, and 
 - **Advanced Search**: Comprehensive filtering and sorting capabilities
 - **Car Detail Pages**: Detailed vehicle information with image galleries
 - **Contact Forms**: React Hook Form with validation
+- **About Us**: Company history, team profiles, and customer testimonials
+- **Contact Page**: Multiple contact methods with social media integration
 - **Accessibility**: WCAG 2.1 compliant with proper ARIA labels and semantic HTML
 - **Performance Optimized**: Next.js Image optimization, lazy loading, and smooth animations
 - **Modern Stack**: Next.js 14, TypeScript, Tailwind CSS
@@ -21,6 +23,7 @@ A modern, responsive car dealership website built with Next.js, TypeScript, and 
 - **Styling**: Tailwind CSS
 - **Forms**: React Hook Form + Zod validation
 - **Icons**: Lucide React
+- **Images**: Unsplash integration for team photos
 - **Font**: Poppins (Google Fonts)
 
 ## 📦 Installation
@@ -57,12 +60,21 @@ A modern, responsive car dealership website built with Next.js, TypeScript, and 
 \`\`\`
 elite-motors/
 ├── app/
+│   ├── about/
+│   │   ├── page.tsx
+│   │   └── loading.tsx
 │   ├── cars/[id]/
-│   │   └── page.tsx
+│   │   ├── page.tsx
+│   │   └── loading.tsx
+│   ├── contact/
+│   │   ├── page.tsx
+│   │   └── loading.tsx
 │   ├── search/
-│   │   └── page.tsx
+│   │   ├── page.tsx
+│   │   └── loading.tsx
 │   ├── globals.css
 │   ├── layout.tsx
+│   ├── loading.tsx
 │   └── page.tsx
 ├── components/
 │   ├── ui/
@@ -122,6 +134,22 @@ elite-motors/
 - Google Maps integration
 - Call-to-action buttons (test drive, contact dealer, window sticker)
 
+### About Us (/about)
+- Hero section with company mission
+- Company history and values
+- Team member profiles with professional headshots
+- Customer testimonials with star ratings
+- Interactive Google Maps showroom location
+- Mission statement and core values
+
+### Contact (/contact)
+- Comprehensive contact form with validation
+- Multiple contact methods (phone, email, address)
+- Business hours and location information
+- Social media links (Facebook, Instagram, TikTok)
+- Interactive Google Maps integration
+- Floating WhatsApp contact button
+
 ## 📱 Responsive Breakpoints
 
 - **Mobile**: < 768px
@@ -137,6 +165,8 @@ elite-motors/
 - High contrast colors
 - Focus indicators
 - Form validation with clear error messages
+- Alt text for all images
+- Proper heading hierarchy
 
 ## 🚀 Performance Optimizations
 
@@ -146,14 +176,19 @@ elite-motors/
 - Efficient bundle splitting
 - Compressed assets
 - Sticky positioning for better UX
+- Optimized Unsplash image loading
+- 1.5-second target load time
 
 ## 📊 Dummy Data
 
-The application uses mock data stored in `data/cars.json` including:
+The application uses mock data including:
 - Featured cars with detailed specifications
 - Extended inventory for search functionality
 - Search suggestions and filter options
 - Vehicle images, features, and technical details
+- Team member information and professional photos
+- Customer testimonials and ratings
+- Company history and mission content
 
 ## 🔧 Form Validation
 
@@ -163,6 +198,7 @@ Contact forms use React Hook Form with Zod schema validation:
 - Phone number validation
 - Minimum character requirements
 - Real-time error feedback
+- Success state handling
 
 ## 🗺️ Maps Integration
 
@@ -170,12 +206,21 @@ Google Maps embedded for dealership location with:
 - Interactive map interface
 - Dealership address and contact information
 - Responsive iframe implementation
+- Consistent styling across pages
+
+## 📱 Social Media Integration
+
+- Facebook, Instagram, and TikTok links
+- Consistent branding and hover effects
+- Accessible social media buttons
+- WhatsApp floating action button
 
 ## 📞 Contact Information
 
 - **Phone**: (555) 000-0000
 - **Email**: info@elitemotors.com
 - **Address**: 123 Main Street, Luxury District, LD 12345
+- **WhatsApp**: Available via floating button
 
 ## 🔮 Future Enhancements
 
@@ -187,6 +232,9 @@ Google Maps embedded for dealership location with:
 - Customer reviews and ratings
 - Financing calculator
 - Trade-in valuation tool
+- Newsletter subscription
+- Live chat integration
+- Appointment scheduling system
 
 ## 📄 License
 
