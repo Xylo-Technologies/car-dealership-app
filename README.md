@@ -12,6 +12,7 @@ A modern, responsive car dealership website built with Next.js, TypeScript, and 
 - **Contact Forms**: React Hook Form with validation
 - **About Us**: Company history, team profiles, and customer testimonials
 - **Contact Page**: Multiple contact methods with social media integration
+- **Admin Portal**: Complete admin functionality for inventory and lead management
 - **Accessibility**: WCAG 2.1 compliant with proper ARIA labels and semantic HTML
 - **Performance Optimized**: Next.js Image optimization, lazy loading, and smooth animations
 - **Modern Stack**: Next.js 14, TypeScript, Tailwind CSS
@@ -25,6 +26,7 @@ A modern, responsive car dealership website built with Next.js, TypeScript, and 
 - **Icons**: Lucide React
 - **Images**: Unsplash integration for team photos
 - **Font**: Poppins (Google Fonts)
+- **Authentication**: Mock authentication system for admin portal
 
 ## 📦 Installation
 
@@ -55,12 +57,23 @@ A modern, responsive car dealership website built with Next.js, TypeScript, and 
 4. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
+5. **Access Admin Portal**
+   Navigate to [http://localhost:3000/admin/login](http://localhost:3000/admin/login)
+   - Email: admin@elitemotors.com
+   - Password: admin123
+
 ## 🏗️ Project Structure
 
 \`\`\`
 elite-motors/
 ├── app/
 │   ├── about/
+│   │   ├── page.tsx
+│   │   └── loading.tsx
+│   ├── admin/
+│   │   ├── login/
+│   │   │   ├── page.tsx
+│   │   │   └── loading.tsx
 │   │   ├── page.tsx
 │   │   └── loading.tsx
 │   ├── cars/[id]/
@@ -79,17 +92,21 @@ elite-motors/
 ├── components/
 │   ├── ui/
 │   │   └── slider.tsx
+│   ├── AdminSidebar.tsx
 │   ├── CarCard.tsx
 │   ├── ContactForm.tsx
 │   ├── FeaturedCars.tsx
 │   ├── Footer.tsx
 │   ├── Hero.tsx
+│   ├── InventoryTab.tsx
+│   ├── LeadsTab.tsx
 │   ├── Navbar.tsx
 │   ├── Pagination.tsx
 │   ├── SearchBar.tsx
 │   └── SearchFilters.tsx
 ├── data/
-│   └── cars.json
+│   ├── cars.json
+│   └── leads.json
 ├── public/
 ├── tailwind.config.ts
 └── README.md
@@ -150,6 +167,44 @@ elite-motors/
 - Interactive Google Maps integration
 - Floating WhatsApp contact button
 
+### Admin Login (/admin/login)
+- Secure login form with email/password validation
+- Multi-factor authentication toggle (mocked)
+- Forgot password functionality (mocked)
+- Demo credentials provided for testing
+- Deep Blue background with Gold accent buttons
+
+### Admin Dashboard (/admin)
+- Collapsible sidebar navigation
+- Inventory management with full CRUD operations
+- Lead management with filtering and response system
+- Analytics and Settings placeholders for future features
+- Responsive design with mobile-friendly navigation
+
+## 🔐 Admin Features
+
+### Authentication
+- Mock authentication system
+- MFA support (demonstration)
+- Session management with localStorage
+- Secure form handling with validation
+
+### Inventory Management
+- Complete vehicle CRUD operations
+- Dynamic specification system (add/remove custom specs)
+- Feature management with tags
+- Mock image upload functionality
+- Comprehensive form validation
+- Real-time table updates
+
+### Lead Management
+- Customer inquiry tracking
+- Source and status filtering
+- Response system with history
+- CSV export functionality
+- Lead detail modal with full conversation history
+- Status management (New, Contacted, Qualified, Converted, Lost)
+
 ## 📱 Responsive Breakpoints
 
 - **Mobile**: < 768px
@@ -167,6 +222,7 @@ elite-motors/
 - Form validation with clear error messages
 - Alt text for all images
 - Proper heading hierarchy
+- Admin portal accessibility compliance
 
 ## 🚀 Performance Optimizations
 
@@ -178,27 +234,33 @@ elite-motors/
 - Sticky positioning for better UX
 - Optimized Unsplash image loading
 - 1.5-second target load time
+- Admin portal optimized for large datasets
 
-## 📊 Dummy Data
+## 📊 Data Management
 
-The application uses mock data including:
-- Featured cars with detailed specifications
-- Extended inventory for search functionality
-- Search suggestions and filter options
-- Vehicle images, features, and technical details
-- Team member information and professional photos
-- Customer testimonials and ratings
-- Company history and mission content
+### Dummy Data Structure
+- **cars.json**: Vehicle inventory with detailed specifications
+- **leads.json**: Customer inquiries with response history
+- Dynamic filtering and sorting capabilities
+- Mock data for realistic testing scenarios
+
+### Admin Data Operations
+- Real-time inventory updates
+- Lead status management
+- Response tracking and history
+- Export functionality for reporting
+- Form validation and error handling
 
 ## 🔧 Form Validation
 
-Contact forms use React Hook Form with Zod schema validation:
+All forms use React Hook Form with Zod schema validation:
 - Required field validation
 - Email format validation
 - Phone number validation
 - Minimum character requirements
 - Real-time error feedback
 - Success state handling
+- Admin-specific validation rules
 
 ## 🗺️ Maps Integration
 
@@ -221,20 +283,29 @@ Google Maps embedded for dealership location with:
 - **Email**: info@elitemotors.com
 - **Address**: 123 Main Street, Luxury District, LD 12345
 - **WhatsApp**: Available via floating button
+- **Admin Email**: admin@elitemotors.com
+
+## 🔐 Admin Credentials
+
+For testing the admin portal:
+- **Email**: admin@elitemotors.com
+- **Password**: admin123
+- **MFA Code** (if enabled): 123456
 
 ## 🔮 Future Enhancements
 
-- Backend integration for real car data
-- User authentication and favorites
-- Advanced search with more filters
-- Online booking system
+- Backend integration for real data persistence
+- User authentication and customer portal
+- Advanced analytics dashboard
+- Real-time notifications
+- Email integration for lead responses
+- Advanced reporting and insights
+- Inventory alerts and notifications
+- Customer relationship management (CRM)
+- Financing calculator integration
 - Virtual car tours
-- Customer reviews and ratings
-- Financing calculator
-- Trade-in valuation tool
-- Newsletter subscription
+- Online appointment booking
 - Live chat integration
-- Appointment scheduling system
 
 ## 📄 License
 

@@ -1,0 +1,86 @@
+{
+  "leads": [
+    {
+      "id": 1,
+      "name": "John Smith",
+      "email": "john.smith@email.com",
+      "phone": "(555) 123-4567",
+      "carInterest": "2024 BMW M4 Competition",
+      "source": "Website Contact Form",
+      "status": "New",
+      "date": "2024-01-15T10:30:00Z",
+      "message": "I'm interested in scheduling a test drive for the BMW M4. Please contact me at your earliest convenience.",
+      "responses": []
+    },
+    {
+      "id": 2,
+      "name": "Sarah Johnson",
+      "email": "sarah.j@email.com",
+      "phone": "(555) 987-6543",
+      "carInterest": "2023 Mercedes-Benz AMG GT 63 S",
+      "source": "Phone Inquiry",
+      "status": "Contacted",
+      "date": "2024-01-14T14:20:00Z",
+      "message": "Looking for financing options for the Mercedes AMG GT. What are the current rates?",
+      "responses": [
+        {
+          "date": "2024-01-14T16:45:00Z",
+          "message": "Hi Sarah, thank you for your interest. I've sent you our current financing options via email. Please let me know if you have any questions."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Michael Chen",
+      "email": "m.chen@email.com",
+      "phone": "(555) 456-7890",
+      "carInterest": "2024 Tesla Model S Plaid",
+      "source": "Social Media",
+      "status": "Qualified",
+      "date": "2024-01-13T09:15:00Z",
+      "message": "Interested in trading in my current vehicle for the Tesla Model S Plaid. Can you provide a trade-in estimate?",
+      "responses": [
+        {
+          "date": "2024-01-13T11:30:00Z",
+          "message": "Hello Michael, I'd be happy to help with a trade-in estimate. Please bring your vehicle by our showroom this week for an appraisal."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Emily Rodriguez",
+      "email": "emily.r@email.com",
+      "phone": "(555) 321-0987",
+      "carInterest": "2023 Porsche 911 Turbo S",
+      "source": "Referral",
+      "status": "Converted",
+      "date": "2024-01-12T16:45:00Z",
+      "message": "Referred by David Thompson. Ready to purchase the Porsche 911 Turbo S. Please prepare the paperwork.",
+      "responses": [
+        {
+          "date": "2024-01-12T17:00:00Z",
+          "message": "Excellent! I'll have all the paperwork ready for your visit tomorrow. Congratulations on your new Porsche!"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Robert Wilson",
+      "email": "r.wilson@email.com",
+      "phone": "(555) 654-3210",
+      "carInterest": "2022 Audi RS6 Avant",
+      "source": "Website Search",
+      "status": "Lost",
+      "date": "2024-01-11T13:20:00Z",
+      "message": "Interested in the Audi RS6 but found a better deal elsewhere. Thank you for your time.",
+      "responses": [
+        {
+          "date": "2024-01-11T14:00:00Z",
+          "message": "Thank you for letting us know, Robert. Please keep us in mind for future vehicle needs. We'd be happy to work with you again."
+        }
+      ]
+    }
+  ],
+  "sources": ["Website Contact Form", "Phone Inquiry", "Social Media", "Referral", "Website Search", "Walk-in"],
+  "statuses": ["New", "Contacted", "Qualified", "Converted", "Lost"]
+}
