@@ -17,29 +17,41 @@ import {
   Phone,
 } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
-import carsData from "../../../../data/cars.json";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchCarById } from "@/store/carsSlice";
+import type { RootState, AppDispatch } from "@/store/store";
 
 const CarDetailPage = () => {
   const params = useParams();
-  const carId = Number.parseInt(params.id as string);
+  const carId = params.id as string;
+  const dispatch = useDispatch<AppDispatch>();
+  const { car, loading } = useSelector((state: RootState) => state.cars);
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  // Find car from both featured and all cars
-  const allCars = [...carsData.featuredCars, ...(carsData.allCars || [])];
-  const car = allCars.find((c) => c.id === carId);
+  useEffect(() => {
+    dispatch(fetchCarById(carId));
+  }, [dispatch, carId]);
 
   // Auto-play carousel
   useEffect(() => {
-    if (!car || !isAutoPlaying || car.images.length <= 1) return;
+    if (!car || !isAutoPlaying || (car.images?.length ?? 0) <= 1) return;
 
     const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % car.images.length);
+      setCurrentImageIndex((prev) => (prev + 1) % (car.images?.length ?? 1));
     }, 4000);
 
     return () => clearInterval(interval);
   }, [car, isAutoPlaying]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        Loading...
+      </div>
+    );
+  }
 
   if (!car) {
     return (
@@ -61,13 +73,14 @@ const CarDetailPage = () => {
   }
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % car.images.length);
+    setCurrentImageIndex((prev) => (prev + 1) % (car.images?.length ?? 1));
     setIsAutoPlaying(false);
   };
 
   const prevImage = () => {
     setCurrentImageIndex(
-      (prev) => (prev - 1 + car.images.length) % car.images.length
+      (prev) =>
+        (prev - 1 + (car.images?.length ?? 1)) % (car.images?.length ?? 1)
     );
     setIsAutoPlaying(false);
   };
@@ -116,7 +129,11 @@ const CarDetailPage = () => {
             <div className="relative bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="relative h-96 sm:h-[500px]">
                 <Image
-                  src={car.images[currentImageIndex] || "/placeholder.svg"}
+                  src={
+                    car.images && car.images.length > 0
+                      ? car.images[currentImageIndex]?.url
+                      : "/placeholder.svg"
+                  }
                   alt={`${car.year} ${car.make} ${car.model} - Image ${
                     currentImageIndex + 1
                   }`}
@@ -127,7 +144,7 @@ const CarDetailPage = () => {
                 />
 
                 {/* Navigation Arrows */}
-                {car.images.length > 1 && (
+                {car.images && car.images.length > 1 && (
                   <>
                     <button
                       onClick={prevImage}
@@ -148,12 +165,12 @@ const CarDetailPage = () => {
 
                 {/* Image Counter */}
                 <div className="absolute bottom-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm">
-                  {currentImageIndex + 1} / {car.images.length}
+                  {currentImageIndex + 1} / {car.images?.length ?? 0}
                 </div>
               </div>
 
               {/* Thumbnail Navigation */}
-              {car.images.length > 1 && (
+              {car.images && car.images.length > 1 && (
                 <div className="flex space-x-2 p-4 overflow-x-auto">
                   {car.images.map((image, index) => (
                     <button
@@ -169,7 +186,7 @@ const CarDetailPage = () => {
                       }`}
                     >
                       <Image
-                        src={image || "/placeholder.svg"}
+                        src={image.url || "/placeholder.svg"}
                         alt={`Thumbnail ${index + 1}`}
                         width={64}
                         height={64}
@@ -191,9 +208,7 @@ const CarDetailPage = () => {
                   <span className="bg-gold text-white px-2 py-1 rounded-full text-xs font-semibold">
                     {car.condition}
                   </span>
-                  <span className="text-sm text-gray-600">
-                    Stock #{car.stockNumber}
-                  </span>
+                  <span className="text-sm text-gray-600">VIN #{car.VIN}</span>
                 </div>
                 <h1 className="text-3xl font-bold text-deep-blue mb-2">
                   {car.year} {car.make} {car.model}
@@ -211,7 +226,7 @@ const CarDetailPage = () => {
                 </div>
                 <div className="flex items-center gap-2 text-dark-gray">
                   <Gauge size={18} className="text-deep-blue" />
-                  <span>{formatMileage(car.mileage)} mi</span>
+                  <span>{formatMileage(car.mileage ?? 0)} mi</span>
                 </div>
                 <div className="flex items-center gap-2 text-dark-gray">
                   <Fuel size={18} className="text-deep-blue" />
@@ -229,14 +244,15 @@ const CarDetailPage = () => {
                   Key Features
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {car.specs.map((spec, index) => (
-                    <span
-                      key={index}
-                      className="bg-light-gray text-deep-blue px-3 py-1 rounded-full text-sm font-medium"
-                    >
-                      {spec}
-                    </span>
-                  ))}
+                  {car.features &&
+                    car.features.map((feature: string, index: number) => (
+                      <span
+                        key={index}
+                        className="bg-light-gray text-deep-blue px-3 py-1 rounded-full text-sm font-medium"
+                      >
+                        {feature}
+                      </span>
+                    ))}
                 </div>
               </div>
 
@@ -292,7 +308,7 @@ const CarDetailPage = () => {
                     <div className="flex justify-between py-2 border-b border-gray-200">
                       <span className="text-gray-600">Mileage</span>
                       <span className="font-medium">
-                        {formatMileage(car.mileage)} mi
+                        {formatMileage(car.mileage ?? 0)} mi
                       </span>
                     </div>
                   </div>
@@ -336,7 +352,7 @@ const CarDetailPage = () => {
                     <div className="flex justify-between py-2 border-b border-gray-200">
                       <span className="text-gray-600">VIN</span>
                       <span className="font-medium font-mono text-sm">
-                        {car.vin}
+                        {car.VIN}
                       </span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-gray-200">
@@ -413,7 +429,7 @@ const CarDetailPage = () => {
                   make: car.make,
                   model: car.model,
                   year: car.year,
-                  stockNumber: car.stockNumber,
+                  stockNumber: car.stockNumber ?? "",
                 }}
               />
             </div>

@@ -5,7 +5,9 @@ import { ChevronDown } from "lucide-react";
 import CarCard from "@/components/CarCard";
 import SearchFilters from "@/components/SearchFilters";
 import Pagination from "@/components/Pagination";
-import carsData from "../../../data/cars.json";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchCars } from "@/store/carsSlice";
+import type { RootState, AppDispatch } from "@/store/store";
 
 const CARS_PER_PAGE = 12;
 
@@ -24,12 +26,14 @@ const SearchPage = () => {
     fuelType: "",
   });
 
-  // Combine featured and all cars for search
-  const allCars = useMemo(() => {
-    const featured = carsData.featuredCars;
-    const additional = carsData.allCars || [];
-    return [...featured, ...additional];
-  }, []);
+  const dispatch = useDispatch<AppDispatch>();
+  const { cars, loading } = useSelector((state: RootState) => state.cars);
+
+  useEffect(() => {
+    dispatch(fetchCars());
+  }, [dispatch]);
+
+  const allCars = cars;
 
   // Filter cars based on current filters
   const filteredCars = useMemo(() => {
@@ -42,7 +46,8 @@ const SearchPage = () => {
       const matchesCondition =
         !filters.condition || car.condition === filters.condition;
       const matchesMileage =
-        car.mileage >= filters.mileage[0] && car.mileage <= filters.mileage[1];
+        (car.mileage ?? 0) >= filters.mileage[0] &&
+        (car.mileage ?? 0) <= filters.mileage[1];
       const matchesFuelType =
         !filters.fuelType || car.fuelType === filters.fuelType;
 
@@ -66,16 +71,16 @@ const SearchPage = () => {
       case "price-high":
         return sorted.sort((a, b) => b.price - a.price);
       case "mileage-low":
-        return sorted.sort((a, b) => a.mileage - b.mileage);
+        return sorted.sort((a, b) => (a.mileage ?? 0) - (b.mileage ?? 0));
       case "mileage-high":
-        return sorted.sort((a, b) => b.mileage - a.mileage);
+        return sorted.sort((a, b) => (b.mileage ?? 0) - (a.mileage ?? 0));
       case "year-new":
         return sorted.sort((a, b) => b.year - a.year);
       case "year-old":
         return sorted.sort((a, b) => a.year - b.year);
       case "newest":
       default:
-        return sorted.sort((a, b) => b.id - a.id);
+        return sorted;
     }
   }, [filteredCars, sortBy]);
 
@@ -179,7 +184,7 @@ const SearchPage = () => {
             {paginatedCars.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 animate-slide-up">
                 {paginatedCars.map((car) => (
-                  <CarCard key={car.id} car={car} />
+                  <CarCard key={car._id} car={car} />
                 ))}
               </div>
             ) : (

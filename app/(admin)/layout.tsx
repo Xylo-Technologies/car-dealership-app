@@ -2,6 +2,9 @@ import type React from "react";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "../globals.css";
+import { Provider } from "react-redux";
+import store from "@/store/store";
+import { Providers } from "@/components/Providers";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -38,7 +41,9 @@ export default function RootLayout({
     <html lang="en" className={`scroll-smooth ${poppins.variable}`}>
       <head></head>
       <body className="font-poppins antialiased">
-        <main role="main">{children}</main>
+        {/* <Provider store={store}> */}
+        <Providers>{children}</Providers>
+        {/* </Provider> */}
       </body>
     </html>
   );

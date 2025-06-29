@@ -1,29 +1,31 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import { Menu, X, Car, Users, BarChart3, Settings, LogOut } from "lucide-react"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Menu, X, Car, Users, BarChart3, Settings, LogOut } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-interface AdminSidebarProps {
-  activeTab: string
-  onTabChange: (tab: string) => void
-}
+// ...inside your component
 
-const AdminSidebar = ({ activeTab, onTabChange }: AdminSidebarProps) => {
-  const [isCollapsed, setIsCollapsed] = useState(false)
-  const router = useRouter()
+interface AdminSidebarProps {}
+
+const AdminSidebar = ({}: AdminSidebarProps) => {
+  const pathname = usePathname();
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const router = useRouter();
 
   const menuItems = [
     { id: "inventory", label: "Inventory", icon: Car },
     { id: "leads", label: "Leads", icon: Users },
     { id: "analytics", label: "Analytics", icon: BarChart3 },
     { id: "settings", label: "Settings", icon: Settings },
-  ]
+  ];
 
   const handleLogout = () => {
-    localStorage.removeItem("adminAuth")
-    router.push("/admin/login")
-  }
+    localStorage.removeItem("adminAuth");
+    router.push("/admin/login");
+  };
 
   return (
     <>
@@ -38,7 +40,9 @@ const AdminSidebar = ({ activeTab, onTabChange }: AdminSidebarProps) => {
       {/* Sidebar */}
       <div
         className={`fixed inset-y-0 left-0 z-40 bg-deep-blue text-white transition-all duration-300 ${
-          isCollapsed ? "-translate-x-full lg:translate-x-0 lg:w-16" : "translate-x-0 w-64"
+          isCollapsed
+            ? "-translate-x-full lg:translate-x-0 lg:w-16"
+            : "translate-x-0 w-64"
         }`}
       >
         <div className="flex flex-col h-full">
@@ -62,10 +66,16 @@ const AdminSidebar = ({ activeTab, onTabChange }: AdminSidebarProps) => {
             <ul className="space-y-2">
               {menuItems.map((item) => (
                 <li key={item.id}>
-                  <button
-                    onClick={() => onTabChange(item.id)}
+                  <Link
+                    href={`/admin/admin/${
+                      item.id === "inventory" ? "" : item.id
+                    }`}
                     className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-300 ${
-                      activeTab === item.id
+                      (
+                        item.id === "inventory"
+                          ? pathname === "/admin/admin"
+                          : pathname === `/admin/admin/${item.id}`
+                      )
                         ? "bg-gold text-deep-blue"
                         : "text-gray-300 hover:bg-white/10 hover:text-white"
                     }`}
@@ -73,7 +83,7 @@ const AdminSidebar = ({ activeTab, onTabChange }: AdminSidebarProps) => {
                   >
                     <item.icon size={20} />
                     {!isCollapsed && <span>{item.label}</span>}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -95,10 +105,13 @@ const AdminSidebar = ({ activeTab, onTabChange }: AdminSidebarProps) => {
 
       {/* Overlay for mobile */}
       {!isCollapsed && (
-        <div className="lg:hidden fixed inset-0 bg-black/50 z-30" onClick={() => setIsCollapsed(true)}></div>
+        <div
+          className="lg:hidden fixed inset-0 bg-black/50 z-30"
+          onClick={() => setIsCollapsed(true)}
+        ></div>
       )}
     </>
-  )
-}
+  );
+};
 
-export default AdminSidebar
+export default AdminSidebar;

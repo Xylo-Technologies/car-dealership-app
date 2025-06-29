@@ -15,9 +15,17 @@
       "interiorColor": "Black",
       "vin": "WBS8M9C0XP5K12345",
       "stockNumber": "EM001",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Convertible", "Twin Turbo V6", "503 HP", "AWD"],
-      "features": ["Navigation System", "Premium Sound", "Heated Seats", "Sunroof"],
+      "features": [
+        "Navigation System",
+        "Premium Sound",
+        "Heated Seats",
+        "Sunroof"
+      ],
       "featured": true
     },
     {
@@ -35,9 +43,16 @@
       "interiorColor": "Red",
       "vin": "WDDYK8AA5PA123456",
       "stockNumber": "EM002",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Coupe", "Twin Turbo V8", "630 HP", "AWD"],
-      "features": ["AMG Performance Package", "Carbon Fiber Trim", "Premium Audio"],
+      "features": [
+        "AMG Performance Package",
+        "Carbon Fiber Trim",
+        "Premium Audio"
+      ],
       "featured": true
     },
     {
@@ -55,7 +70,10 @@
       "interiorColor": "White",
       "vin": "5YJ3E1EA8PF123456",
       "stockNumber": "EM003",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Sedan", "Electric", "1020 HP", "AWD"],
       "features": ["Autopilot", "Premium Connectivity", "Glass Roof"],
       "featured": true
@@ -75,7 +93,10 @@
       "interiorColor": "Black",
       "vin": "WP0AB2A99PS123456",
       "stockNumber": "EM004",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Coupe", "Twin Turbo H6", "640 HP", "AWD"],
       "features": ["Sport Chrono Package", "PASM", "Ceramic Brakes"],
       "featured": true
@@ -95,7 +116,10 @@
       "interiorColor": "Black",
       "vin": "ZHWUC1ZF8PLA12345",
       "stockNumber": "EM005",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Coupe", "V10", "630 HP", "AWD"],
       "features": ["Carbon Fiber Package", "Lifting System", "Premium Audio"],
       "featured": true
@@ -115,9 +139,16 @@
       "interiorColor": "Beige",
       "vin": "ZFF79ALA5P0123456",
       "stockNumber": "EM006",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Coupe", "Twin Turbo V8", "661 HP", "RWD"],
-      "features": ["Carbon Fiber Steering Wheel", "Racing Seats", "Premium Sound"],
+      "features": [
+        "Carbon Fiber Steering Wheel",
+        "Racing Seats",
+        "Premium Sound"
+      ],
       "featured": true
     }
   ],
@@ -137,7 +168,10 @@
       "interiorColor": "Black",
       "vin": "WAUZZZ4G5PN123456",
       "stockNumber": "EM007",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Wagon", "Twin Turbo V8", "591 HP", "AWD"],
       "features": ["Virtual Cockpit", "Bang & Olufsen Audio", "Air Suspension"],
       "featured": false
@@ -157,7 +191,10 @@
       "interiorColor": "Carbon Black",
       "vin": "SBM14DCA8PW123456",
       "stockNumber": "EM008",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Coupe", "Twin Turbo V8", "710 HP", "RWD"],
       "features": ["Active Suspension", "Carbon Fiber Body", "Track Mode"],
       "featured": false
@@ -177,7 +214,10 @@
       "interiorColor": "Saddle",
       "vin": "SCBCE7ZA8PC123456",
       "stockNumber": "EM009",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Coupe", "Twin Turbo W12", "626 HP", "AWD"],
       "features": ["Mulliner Package", "Diamond Quilted Leather", "Naim Audio"],
       "featured": false
@@ -197,7 +237,10 @@
       "interiorColor": "Navy Blue",
       "vin": "SCA664S58PUX12345",
       "stockNumber": "EM010",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Sedan", "Twin Turbo V12", "563 HP", "RWD"],
       "features": ["Starlight Headliner", "Spirit of Ecstasy", "Bespoke Audio"],
       "featured": false
@@ -217,9 +260,16 @@
       "interiorColor": "Black",
       "vin": "ZAM57YSA8P1123456",
       "stockNumber": "EM011",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Coupe", "Twin Turbo V6", "621 HP", "RWD"],
-      "features": ["Carbon Fiber Monocoque", "Butterfly Doors", "Track Package"],
+      "features": [
+        "Carbon Fiber Monocoque",
+        "Butterfly Doors",
+        "Track Package"
+      ],
       "featured": false
     },
     {
@@ -237,9 +287,16 @@
       "interiorColor": "Tan",
       "vin": "SCFRMFAW8PGL12345",
       "stockNumber": "EM012",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Coupe", "Twin Turbo V8", "503 HP", "RWD"],
-      "features": ["Bang & Olufsen Audio", "Carbon Fiber Trim", "Sport Plus Pack"],
+      "features": [
+        "Bang & Olufsen Audio",
+        "Carbon Fiber Trim",
+        "Sport Plus Pack"
+      ],
       "featured": false
     },
     {
@@ -257,7 +314,10 @@
       "interiorColor": "Ebony",
       "vin": "SAJWA6FZ8PMK12345",
       "stockNumber": "EM013",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Convertible", "Supercharged V8", "575 HP", "AWD"],
       "features": ["Meridian Audio", "Performance Seats", "Active Exhaust"],
       "featured": false
@@ -277,9 +337,16 @@
       "interiorColor": "White",
       "vin": "JTHH26BY8PA123456",
       "stockNumber": "EM014",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Coupe", "V8", "471 HP", "RWD"],
-      "features": ["Mark Levinson Audio", "Adaptive Suspension", "Head-Up Display"],
+      "features": [
+        "Mark Levinson Audio",
+        "Adaptive Suspension",
+        "Head-Up Display"
+      ],
       "featured": false
     },
     {
@@ -297,7 +364,10 @@
       "interiorColor": "Red",
       "vin": "1G6DR5RK8P0123456",
       "stockNumber": "EM015",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Sedan", "Supercharged V8", "668 HP", "RWD"],
       "features": ["Brembo Brakes", "Recaro Seats", "Magnetic Ride Control"],
       "featured": false
@@ -317,7 +387,10 @@
       "interiorColor": "Nappa Black",
       "vin": "KMHJ14JA8PA123456",
       "stockNumber": "EM016",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Sedan", "Twin Turbo V6", "409 HP", "AWD"],
       "features": ["Lexicon Audio", "Massage Seats", "Air Suspension"],
       "featured": false
@@ -337,7 +410,10 @@
       "interiorColor": "Red",
       "vin": "19UNC1B09NA123456",
       "stockNumber": "EM017",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Coupe", "Hybrid V6", "600 HP", "AWD"],
       "features": ["Carbon Fiber Body", "ELS Audio", "Track Mode"],
       "featured": false
@@ -357,7 +433,10 @@
       "interiorColor": "Graphite",
       "vin": "JN1CV7AP8PM123456",
       "stockNumber": "EM018",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Coupe", "Twin Turbo V6", "400 HP", "AWD"],
       "features": ["Bose Audio", "ProPILOT Assist", "Adaptive Suspension"],
       "featured": false
@@ -377,7 +456,10 @@
       "interiorColor": "Cappuccino",
       "vin": "5LMJJ3LT8PEL12345",
       "stockNumber": "EM019",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["SUV", "Twin Turbo V6", "440 HP", "AWD"],
       "features": ["Revel Audio", "Massage Seats", "Air Suspension"],
       "featured": false
@@ -397,7 +479,10 @@
       "interiorColor": "Windsor Leather",
       "vin": "SALWR2RV8PA123456",
       "stockNumber": "EM020",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["SUV", "Supercharged V8", "575 HP", "AWD"],
       "features": ["Meridian Audio", "Terrain Response", "Adaptive Dynamics"],
       "featured": false
@@ -417,7 +502,10 @@
       "interiorColor": "Black",
       "vin": "WP1AE2A28PLA12345",
       "stockNumber": "EM021",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["SUV", "Twin Turbo V8", "541 HP", "AWD"],
       "features": ["PASM", "Sport Chrono", "Burmester Audio"],
       "featured": false
@@ -437,9 +525,16 @@
       "interiorColor": "Merino Leather",
       "vin": "5UXCY8C08P9L12345",
       "stockNumber": "EM022",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["SUV", "Twin Turbo V8", "617 HP", "AWD"],
-      "features": ["M Driver's Package", "Harman Kardon", "Active M Differential"],
+      "features": [
+        "M Driver's Package",
+        "Harman Kardon",
+        "Active M Differential"
+      ],
       "featured": false
     },
     {
@@ -457,9 +552,16 @@
       "interiorColor": "Black Nappa",
       "vin": "4JGDF7CE8PA123456",
       "stockNumber": "EM023",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["SUV", "Twin Turbo V8", "603 HP", "AWD"],
-      "features": ["AMG Performance Package", "Burmester 3D", "Air Body Control"],
+      "features": [
+        "AMG Performance Package",
+        "Burmester 3D",
+        "Air Body Control"
+      ],
       "featured": false
     },
     {
@@ -477,9 +579,16 @@
       "interiorColor": "Black Valcona",
       "vin": "WA1EVBF19PD123456",
       "stockNumber": "EM024",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["SUV", "Twin Turbo V8", "591 HP", "AWD"],
-      "features": ["Virtual Cockpit Plus", "Bang & Olufsen 3D", "Dynamic Package"],
+      "features": [
+        "Virtual Cockpit Plus",
+        "Bang & Olufsen 3D",
+        "Dynamic Package"
+      ],
       "featured": false
     },
     {
@@ -497,7 +606,10 @@
       "interiorColor": "Cream",
       "vin": "5YJXCBE28PF123456",
       "stockNumber": "EM025",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["SUV", "Electric", "1020 HP", "AWD"],
       "features": ["Falcon Wing Doors", "Full Self-Driving", "Premium Audio"],
       "featured": false
@@ -517,7 +629,10 @@
       "interiorColor": "Mojave",
       "vin": "5NPE34AF8PH123456",
       "stockNumber": "EM026",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Sedan", "Electric", "1111 HP", "AWD"],
       "features": ["Glass Canopy", "Surreal Sound", "DreamDrive Pro"],
       "featured": false
@@ -537,7 +652,10 @@
       "interiorColor": "Ocean Coast",
       "vin": "7FCXXBEA8PE123456",
       "stockNumber": "EM027",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Truck", "Electric", "835 HP", "AWD"],
       "features": ["Tank Turn", "Camp Mode", "Meridian Audio"],
       "featured": false
@@ -557,7 +675,10 @@
       "interiorColor": "Ebony",
       "vin": "1FA6P8JZ8P5123456",
       "stockNumber": "EM028",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Coupe", "Supercharged V8", "760 HP", "RWD"],
       "features": ["Track Package", "Carbon Fiber Track Pack", "B&O Audio"],
       "featured": false
@@ -577,9 +698,16 @@
       "interiorColor": "Adrenaline Red",
       "vin": "1G1YY26E8P5123456",
       "stockNumber": "EM029",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Coupe", "V8", "670 HP", "RWD"],
-      "features": ["Z07 Performance Package", "Carbon Fiber Wheels", "Bose Audio"],
+      "features": [
+        "Z07 Performance Package",
+        "Carbon Fiber Wheels",
+        "Bose Audio"
+      ],
       "featured": false
     },
     {
@@ -597,7 +725,10 @@
       "interiorColor": "Black",
       "vin": "2C3CDZC98PH123456",
       "stockNumber": "EM030",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Coupe", "Supercharged V8", "717 HP", "RWD"],
       "features": ["SRT Performance Pages", "Harman Kardon", "Launch Control"],
       "featured": false
@@ -617,7 +748,10 @@
       "interiorColor": "Red",
       "vin": "JM1J1M16XP1123456",
       "stockNumber": "EM031",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Coupe", "Turbo I6", "382 HP", "RWD"],
       "features": ["Adaptive Suspension", "JBL Audio", "Safety Sense 2.0"],
       "featured": false
@@ -637,7 +771,10 @@
       "interiorColor": "Red Alcantara",
       "vin": "JN1AR5EF8PM123456",
       "stockNumber": "EM032",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Coupe", "Twin Turbo V6", "600 HP", "AWD"],
       "features": ["NISMO Tuned Suspension", "Carbon Fiber Body", "Bose Audio"],
       "featured": false
@@ -657,9 +794,16 @@
       "interiorColor": "Ebony",
       "vin": "19UNC1B07NA123456",
       "stockNumber": "EM033",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Coupe", "Hybrid V6", "573 HP", "AWD"],
-      "features": ["Sport Hybrid SH-AWD", "ELS Studio Audio", "Carbon Fiber Roof"],
+      "features": [
+        "Sport Hybrid SH-AWD",
+        "ELS Studio Audio",
+        "Carbon Fiber Roof"
+      ],
       "featured": false
     },
     {
@@ -677,7 +821,10 @@
       "interiorColor": "Black",
       "vin": "JF1VA1J68M9123456",
       "stockNumber": "EM034",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Sedan", "Turbo H4", "310 HP", "AWD"],
       "features": ["DCCD", "Brembo Brakes", "Harman Kardon"],
       "featured": false
@@ -697,7 +844,10 @@
       "interiorColor": "Black",
       "vin": "JA32U2FU8FU123456",
       "stockNumber": "EM035",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Sedan", "Turbo I4", "291 HP", "AWD"],
       "features": ["S-AWC", "Recaro Seats", "Rockford Fosgate"],
       "featured": false
@@ -717,7 +867,10 @@
       "interiorColor": "Black",
       "vin": "JM1FD3318S0123456",
       "stockNumber": "EM036",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Coupe", "Twin Turbo Rotary", "255 HP", "RWD"],
       "features": ["Sequential Twin Turbo", "Limited Slip Diff", "Bose Audio"],
       "featured": false
@@ -737,7 +890,10 @@
       "interiorColor": "Titan Black",
       "vin": "3VW5T7AU8PM123456",
       "stockNumber": "EM037",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Hatchback", "Turbo I4", "315 HP", "AWD"],
       "features": ["4MOTION AWD", "DCC", "Harman Kardon"],
       "featured": false
@@ -757,7 +913,10 @@
       "interiorColor": "Carbon Black",
       "vin": "WMWXP9C58PT123456",
       "stockNumber": "EM038",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Hatchback", "Turbo I4", "301 HP", "FWD"],
       "features": ["Track-Tuned Suspension", "Harman Kardon", "JCW Aero Kit"],
       "featured": false
@@ -777,7 +936,10 @@
       "interiorColor": "Black",
       "vin": "ZARFAEBN8P7123456",
       "stockNumber": "EM039",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Sedan", "Twin Turbo V6", "505 HP", "RWD"],
       "features": ["Carbon Fiber Hood", "Harman Kardon", "Active Suspension"],
       "featured": false
@@ -797,9 +959,16 @@
       "interiorColor": "Black Alcantara",
       "vin": "SCCLMDCR8PHA12345",
       "stockNumber": "EM040",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Coupe", "Supercharged V6", "400 HP", "RWD"],
-      "features": ["Lotus Active Suspension", "KEF Audio", "Carbon Fiber Package"],
+      "features": [
+        "Lotus Active Suspension",
+        "KEF Audio",
+        "Carbon Fiber Package"
+      ],
       "featured": false
     },
     {
@@ -817,7 +986,10 @@
       "interiorColor": "Orange",
       "vin": "YS2RDBCR8JA123456",
       "stockNumber": "EM041",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Coupe", "Hybrid V8", "1500 HP", "RWD"],
       "features": ["Direct Drive", "Carbon Fiber Monocoque", "Autoskin Doors"],
       "featured": false
@@ -837,7 +1009,10 @@
       "interiorColor": "Beluga Black",
       "vin": "VF9SP3V26KM123456",
       "stockNumber": "EM042",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Coupe", "Quad Turbo W16", "1479 HP", "AWD"],
       "features": ["Active Aerodynamics", "Burmester Audio", "Sky View Roof"],
       "featured": false
@@ -857,9 +1032,16 @@
       "interiorColor": "Blue Carbon",
       "vin": "ZPBH1ZNP8HLA12345",
       "stockNumber": "EM043",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Coupe", "Twin Turbo V12", "789 HP", "RWD"],
-      "features": ["Active Aerodynamics", "Sonus Faber Audio", "Carbon Titanium"],
+      "features": [
+        "Active Aerodynamics",
+        "Sonus Faber Audio",
+        "Carbon Titanium"
+      ],
       "featured": false
     },
     {
@@ -877,9 +1059,16 @@
       "interiorColor": "Alcantara Black",
       "vin": "ZRNCVBEA8PA123456",
       "stockNumber": "EM044",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Coupe", "Electric", "1914 HP", "AWD"],
-      "features": ["Torque Vectoring", "AI Driving Coach", "Rimac All-Wheel Torque Vectoring"],
+      "features": [
+        "Torque Vectoring",
+        "AI Driving Coach",
+        "Rimac All-Wheel Torque Vectoring"
+      ],
       "featured": false
     },
     {
@@ -897,7 +1086,10 @@
       "interiorColor": "Charcoal",
       "vin": "LPSED4EA8PA123456",
       "stockNumber": "EM045",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["SUV", "Electric", "489 HP", "AWD"],
       "features": ["Air Suspension", "Bowers & Wilkins", "Pilot Assist"],
       "featured": false
@@ -917,7 +1109,10 @@
       "interiorColor": "Amber",
       "vin": "YV4A22PL8P1123456",
       "stockNumber": "EM046",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["SUV", "Hybrid I4", "455 HP", "AWD"],
       "features": ["Air Suspension", "Bowers & Wilkins", "Pilot Assist"],
       "featured": false
@@ -937,7 +1132,10 @@
       "interiorColor": "Orange",
       "vin": "YS3FB49S881123456",
       "stockNumber": "EM047",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Sedan", "Turbo V6", "280 HP", "AWD"],
       "features": ["XWD All-Wheel Drive", "Sport Chassis", "Premium Audio"],
       "featured": false
@@ -957,7 +1155,10 @@
       "interiorColor": "White Vegan",
       "vin": "MAJ6P1CL8PC123456",
       "stockNumber": "EM048",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["SUV", "Electric", "564 HP", "AWD"],
       "features": ["Solar Roof", "California Mode", "Revolving Screen"],
       "featured": false
@@ -977,9 +1178,16 @@
       "interiorColor": "Cognac",
       "vin": "LBVFA13E8PA123456",
       "stockNumber": "EM049",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["SUV", "Electric", "402 HP", "AWD"],
-      "features": ["48-inch Shared Display", "Gesture Control", "Face Recognition"],
+      "features": [
+        "48-inch Shared Display",
+        "Gesture Control",
+        "Face Recognition"
+      ],
       "featured": false
     },
     {
@@ -997,7 +1205,10 @@
       "interiorColor": "Pearl White",
       "vin": "3C6UR5CL8PG123456",
       "stockNumber": "EM050",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["SUV", "Electric", "1050 HP", "AWD"],
       "features": ["Zero Gravity Seats", "LIDAR", "AI Personal Assistant"],
       "featured": false
@@ -1017,7 +1228,10 @@
       "interiorColor": "Karuun",
       "vin": "LSJW25AE8PA123456",
       "stockNumber": "EM051",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Sedan", "Electric", "644 HP", "AWD"],
       "features": ["NOMI AI Assistant", "Battery Swap", "Air Suspension"],
       "featured": false
@@ -1037,7 +1251,10 @@
       "interiorColor": "Nappa Black",
       "vin": "LVVDB11B8PA123456",
       "stockNumber": "EM052",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Sedan", "Electric", "473 HP", "AWD"],
       "features": ["XPILOT 4.0", "Scissor Doors", "Dynaudio Audio"],
       "featured": false
@@ -1057,7 +1274,10 @@
       "interiorColor": "Tan",
       "vin": "LGXC16EP8PA123456",
       "stockNumber": "EM053",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["SUV", "Electric", "517 HP", "AWD"],
       "features": ["Blade Battery", "DiLink System", "Panoramic Sunroof"],
       "featured": false
@@ -1077,7 +1297,10 @@
       "interiorColor": "Warm Gray",
       "vin": "LSJA25AE8PA123456",
       "stockNumber": "EM054",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["SUV", "Range Extender", "449 HP", "AWD"],
       "features": ["Magic Carpet Suspension", "Li OS", "Dolby Atmos"],
       "featured": false
@@ -1097,7 +1320,10 @@
       "interiorColor": "Nappa Brown",
       "vin": "LZYTBHDB8PA123456",
       "stockNumber": "EM055",
-      "images": ["/placeholder.svg?height=600&width=800", "/placeholder.svg?height=600&width=800"],
+      "images": [
+        "/placeholder.svg?height=600&width=800",
+        "/placeholder.svg?height=600&width=800"
+      ],
       "specs": ["Hatchback", "Electric", "536 HP", "AWD"],
       "features": ["800V Architecture", "Yamaha Audio", "Air Suspension"],
       "featured": false
