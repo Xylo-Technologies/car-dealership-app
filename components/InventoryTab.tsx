@@ -132,6 +132,7 @@ const InventoryTab = () => {
     setFeatures([]);
     setDynamicSpecs([]);
     setImages([]);
+    dispatch(fetchCars());
   };
 
   const addDynamicSpec = () => {
