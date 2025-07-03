@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchCars, createCar, updateCar, deleteCar } from "@/store/carsSlice";
 import type { RootState, AppDispatch } from "@/store/store";
 import type { Car } from "@/store/carsSlice";
+import axios from "axios";
 
 const carSchema = z.object({
   make: z.string().min(1, "Make is required"),
@@ -26,6 +27,7 @@ const carSchema = z.object({
   exteriorColor: z.string().min(1, "Exterior color is required"),
   interiorColor: z.string().min(1, "Interior color is required"),
   features: z.array(z.string()).optional(),
+  dealership: z.string().min(1, "Dealership is required"),
 });
 
 type CarFormData = z.infer<typeof carSchema>;
@@ -46,6 +48,9 @@ const InventoryTab = () => {
   const [features, setFeatures] = useState<string[]>([]);
   const [newFeature, setNewFeature] = useState("");
   const [images, setImages] = useState<File[]>([]);
+  const [dealerships, setDealerships] = useState<
+    { _id: string; name: string }[]
+  >([]);
 
   const {
     register,
@@ -59,6 +64,10 @@ const InventoryTab = () => {
 
   useEffect(() => {
     dispatch(fetchCars());
+    axios
+      .get("/api/dealerships")
+      .then((res) => setDealerships(res.data))
+      .catch(() => setDealerships([]));
   }, [dispatch]);
 
   const handleEdit = (car: Car) => {
@@ -102,10 +111,21 @@ const InventoryTab = () => {
     images.forEach((img) => formData.append("images", img));
     // Add dynamic specs if needed
 
+    const token = localStorage.getItem("adminToken");
     if (editingCar) {
-      await dispatch(updateCar({ id: editingCar._id, carData: formData }));
+      await axios.put(`/api/cars/${editingCar._id}`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        },
+      });
     } else {
-      await dispatch(createCar(formData));
+      await axios.post("/api/cars", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        },
+      });
     }
     setIsFormOpen(false);
     reset();
@@ -327,6 +347,33 @@ const InventoryTab = () => {
                     {errors.year && (
                       <p className="mt-1 text-sm text-red-600">
                         {errors.year.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-deep-blue mb-2">
+                      Dealership *
+                    </label>
+                    <select
+                      {...register("dealership")}
+                      className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent ${
+                        errors.dealership ? "border-red-500" : "border-gray-300"
+                      }`}
+                      defaultValue=""
+                    >
+                      <option value="" disabled>
+                        Select a dealership
+                      </option>
+                      {dealerships.map((d) => (
+                        <option key={d._id} value={d._id}>
+                          {d.name}
+                        </option>
+                      ))}
+                    </select>
+                    {errors.dealership && (
+                      <p className="mt-1 text-sm text-red-600">
+                        {errors.dealership.message}
                       </p>
                     )}
                   </div>

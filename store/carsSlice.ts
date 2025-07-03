@@ -71,8 +71,12 @@ export const createCar = createAsyncThunk(
   "cars/create",
   async (carData: FormData, thunkAPI) => {
     try {
+      const token = localStorage.getItem("adminToken");
       const response = await axios.post("/api/cars", carData, {
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        },
       });
       return response.data;
     } catch (err: any) {
@@ -85,8 +89,12 @@ export const updateCar = createAsyncThunk(
   "cars/update",
   async ({ id, carData }: { id: string; carData: FormData }, thunkAPI) => {
     try {
+      const token = localStorage.getItem("adminToken");
       const response = await axios.put(`/api/cars/${id}`, carData, {
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        },
       });
       return response.data;
     } catch (err: any) {
@@ -99,7 +107,12 @@ export const deleteCar = createAsyncThunk(
   "cars/delete",
   async (id: string, thunkAPI) => {
     try {
-      await axios.delete(`/api/cars/${id}`);
+      const token = localStorage.getItem("adminToken");
+      await axios.delete(`/api/cars/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       return id;
     } catch (err: any) {
       return thunkAPI.rejectWithValue(err.response?.data?.error || err.message);
