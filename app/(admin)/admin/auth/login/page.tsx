@@ -1,25 +1,26 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import * as z from "zod"
-import { Eye, EyeOff, Mail, Lock, Shield } from "lucide-react"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { Eye, EyeOff, Mail, Lock, Shield } from "lucide-react";
+import axios from "axios";
 
 const loginSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
   password: z.string().min(6, "Password must be at least 6 characters"),
   mfaEnabled: z.boolean().optional(),
-})
+});
 
-type LoginFormData = z.infer<typeof loginSchema>
+type LoginFormData = z.infer<typeof loginSchema>;
 
 const AdminLoginPage = () => {
-  const router = useRouter()
-  const [showPassword, setShowPassword] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-  const [loginError, setLoginError] = useState("")
+  const router = useRouter();
+  const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [loginError, setLoginError] = useState("");
 
   const {
     register,
@@ -31,42 +32,30 @@ const AdminLoginPage = () => {
     defaultValues: {
       mfaEnabled: false,
     },
-  })
+  });
 
-  const mfaEnabled = watch("mfaEnabled")
+  const mfaEnabled = watch("mfaEnabled");
 
   const onSubmit = async (data: LoginFormData) => {
-    setIsLoading(true)
-    setLoginError("")
-
-    // Mock authentication
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-
-    // Mock validation (admin@elitemotors.com / admin123)
-    if (data.email === "admin@elitemotors.com" && data.password === "admin123") {
-      // Mock MFA if enabled
-      if (data.mfaEnabled) {
-        const mfaCode = prompt("Enter MFA Code (use: 123456)")
-        if (mfaCode !== "123456") {
-          setLoginError("Invalid MFA code")
-          setIsLoading(false)
-          return
-        }
-      }
-
-      // Store auth state (in real app, use proper auth)
-      localStorage.setItem("adminAuth", "true")
-      router.push("/admin")
-    } else {
-      setLoginError("Invalid email or password")
+    setIsLoading(true);
+    setLoginError("");
+    try {
+      const response = await axios.post("/api/auth/login", {
+        email: data.email,
+        password: data.password,
+      });
+      // Store JWT token
+      localStorage.setItem("adminToken", response.data.token);
+      router.push("/admin");
+    } catch (err: any) {
+      setLoginError(err.response?.data?.error || "Login failed");
     }
-
-    setIsLoading(false)
-  }
+    setIsLoading(false);
+  };
 
   const handleForgotPassword = () => {
-    alert("Password reset link would be sent to your email address.")
-  }
+    alert("Password reset link would be sent to your email address.");
+  };
 
   return (
     <div className="min-h-screen bg-deep-blue flex items-center justify-center px-4 sm:px-6 lg:px-8">
@@ -74,7 +63,9 @@ const AdminLoginPage = () => {
         {/* Header */}
         <div className="text-center">
           <h1 className="text-4xl font-bold text-gold mb-2">Elite Motors</h1>
-          <h2 className="text-2xl font-semibold text-white mb-2">Admin Portal</h2>
+          <h2 className="text-2xl font-semibold text-white mb-2">
+            Admin Portal
+          </h2>
           <p className="text-gray-300">Sign in to access the dashboard</p>
         </div>
 
@@ -83,11 +74,17 @@ const AdminLoginPage = () => {
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             {/* Email Field */}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-deep-blue mb-2">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-deep-blue mb-2"
+              >
                 Email Address
               </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+                <Mail
+                  className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                  size={18}
+                />
                 <input
                   {...register("email")}
                   type="email"
@@ -98,16 +95,26 @@ const AdminLoginPage = () => {
                   placeholder="Enter your email"
                 />
               </div>
-              {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>}
+              {errors.email && (
+                <p className="mt-1 text-sm text-red-600">
+                  {errors.email.message}
+                </p>
+              )}
             </div>
 
             {/* Password Field */}
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-deep-blue mb-2">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-deep-blue mb-2"
+              >
                 Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+                <Lock
+                  className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                  size={18}
+                />
                 <input
                   {...register("password")}
                   type={showPassword ? "text" : "password"}
@@ -125,7 +132,11 @@ const AdminLoginPage = () => {
                   {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>
               </div>
-              {errors.password && <p className="mt-1 text-sm text-red-600">{errors.password.message}</p>}
+              {errors.password && (
+                <p className="mt-1 text-sm text-red-600">
+                  {errors.password.message}
+                </p>
+              )}
             </div>
 
             {/* MFA Toggle */}
@@ -136,7 +147,10 @@ const AdminLoginPage = () => {
                 id="mfaEnabled"
                 className="h-4 w-4 text-gold focus:ring-gold border-gray-300 rounded"
               />
-              <label htmlFor="mfaEnabled" className="ml-2 block text-sm text-deep-blue">
+              <label
+                htmlFor="mfaEnabled"
+                className="ml-2 block text-sm text-deep-blue"
+              >
                 <div className="flex items-center gap-2">
                   <Shield size={16} className="text-gold" />
                   Enable Multi-Factor Authentication
@@ -147,7 +161,8 @@ const AdminLoginPage = () => {
             {mfaEnabled && (
               <div className="bg-gold/10 border border-gold/20 rounded-lg p-3 animate-fade-in">
                 <p className="text-sm text-deep-blue">
-                  <strong>Demo MFA:</strong> Use code <code className="bg-gold/20 px-1 rounded">123456</code> when
+                  <strong>Demo MFA:</strong> Use code{" "}
+                  <code className="bg-gold/20 px-1 rounded">123456</code> when
                   prompted
                 </p>
               </div>
@@ -206,7 +221,7 @@ const AdminLoginPage = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AdminLoginPage
+export default AdminLoginPage;

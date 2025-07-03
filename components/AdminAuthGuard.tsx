@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
+import { jwtDecode } from "jwt-decode";
 
 export default function AdminAuthGuard({
   children,
@@ -8,16 +9,38 @@ export default function AdminAuthGuard({
   children: React.ReactNode;
 }) {
   const router = useRouter();
+  const pathname = usePathname();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const isAuthenticated = localStorage.getItem("adminAuth");
-    if (!isAuthenticated) {
-      router.push("/admin/login");
+    // Allow access to login and register pages without auth
+    if (
+      pathname === "/admin/auth/login" ||
+      pathname === "/admin/auth/register"
+    ) {
+      setIsLoading(false);
+      return;
+    }
+    const token = localStorage.getItem("adminToken");
+    if (!token) {
+      router.push("/admin/auth/login");
+      return;
+    }
+    // Optionally, check if token is expired
+    try {
+      const decoded: any = jwtDecode(token);
+      if (decoded.exp && Date.now() >= decoded.exp * 1000) {
+        localStorage.removeItem("adminToken");
+        router.push("/admin/auth/login");
+        return;
+      }
+    } catch {
+      localStorage.removeItem("adminToken");
+      router.push("/admin/auth/login");
       return;
     }
     setIsLoading(false);
-  }, [router]);
+  }, [router, pathname]);
 
   if (isLoading) {
     return (

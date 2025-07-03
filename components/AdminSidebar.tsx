@@ -24,7 +24,7 @@ const AdminSidebar = ({}: AdminSidebarProps) => {
 
   const handleLogout = () => {
     localStorage.removeItem("adminAuth");
-    router.push("/admin/login");
+    router.push("/admin/auth/login");
   };
 
   return (
@@ -67,14 +67,12 @@ const AdminSidebar = ({}: AdminSidebarProps) => {
               {menuItems.map((item) => (
                 <li key={item.id}>
                   <Link
-                    href={`/admin/admin/${
-                      item.id === "inventory" ? "" : item.id
-                    }`}
+                    href={`/admin/${item.id === "inventory" ? "" : item.id}`}
                     className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-300 ${
                       (
                         item.id === "inventory"
-                          ? pathname === "/admin/admin"
-                          : pathname === `/admin/admin/${item.id}`
+                          ? pathname === "/admin"
+                          : pathname === `/admin/${item.id}`
                       )
                         ? "bg-gold text-deep-blue"
                         : "text-gray-300 hover:bg-white/10 hover:text-white"
